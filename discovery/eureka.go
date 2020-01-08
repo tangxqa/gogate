@@ -37,12 +37,12 @@ func StartRegister() {
 	//	panic(err)
 	//}
 
-	instanceId = ip + ":" + strconv.Itoa(conf.App.ServerConfig.Port)
+	instanceId = ip + ":" + conf.App.ServerConfig.AppName + ":" + strconv.Itoa(conf.App.ServerConfig.Port)
 
 	// 注册
-	asynclog.Info("register to eureka as %s", instanceId)
+	asynclog.Info("register to eureka as %s", ip)
 	gogateApp = eureka.NewInstanceInfo(
-		instanceId,
+		ip,
 		conf.App.ServerConfig.AppName,
 		ip,
 		conf.App.ServerConfig.Port,
