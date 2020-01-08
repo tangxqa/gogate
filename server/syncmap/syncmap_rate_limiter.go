@@ -3,7 +3,7 @@ package syncmap
 import (
 	"sync"
 
-	"github.com/wanghongfei/gogate/throttle"
+	"github.com/tangxqa/gogate/throttle"
 )
 
 // 封装sync.map, 提供类型安全的方法调用

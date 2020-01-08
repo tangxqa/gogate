@@ -1,4 +1,4 @@
-module github.com/wanghongfei/gogate
+module github.com/tangxqa/gogate
 
 replace golang.org/x/net => github.com/golang/net v0.0.0-20190404232315-eb5bcb51f2a3
 
@@ -15,6 +15,6 @@ require (
 	github.com/hashicorp/consul/api v1.0.1
 	github.com/mediocregopher/radix.v2 v0.0.0-20181115013041-b67df6e626f9
 	github.com/valyala/fasthttp v1.4.0
-	github.com/wanghongfei/go-eureka-client v1.1.0
+	github.com/tangxqa/go-eureka-client v1.1.0
 	gopkg.in/yaml.v2 v2.2.2
 )

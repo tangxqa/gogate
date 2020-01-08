@@ -2,7 +2,7 @@ package server
 
 import (
 	"github.com/alecthomas/log4go"
-	"github.com/wanghongfei/gogate/conf"
+	"github.com/tangxqa/gogate/conf"
 )
 
 func InitGogate(gogateConfigFile, logConfigFile string) {

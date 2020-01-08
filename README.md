@@ -1,4 +1,4 @@
-![build](https://api.travis-ci.org/wanghongfei/gogate.svg?branch=master)
+![build](https://api.travis-ci.org/tangxqa/gogate.svg?branch=master)
 
 # GoGate
 
@@ -63,7 +63,7 @@ go版本>=1.13。
 在$GOPATH之外的任意目录下clone项目:
 
 ```shell
-git clone https://github.com/wanghongfei/gogate
+git clone https://github.com/tangxqa/gogate
 ```
 
 安装依赖:

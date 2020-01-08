@@ -2,7 +2,7 @@ package discovery
 
 import (
 	"github.com/hashicorp/consul/api"
-	"github.com/wanghongfei/gogate/conf"
+	"github.com/tangxqa/gogate/conf"
 )
 
 var consulClient *api.Client

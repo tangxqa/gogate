@@ -2,7 +2,7 @@ package server
 
 import (
 	"github.com/valyala/fasthttp"
-	"github.com/wanghongfei/gogate/server/route"
+	"github.com/tangxqa/gogate/server/route"
 )
 
 // 从请求上下文中取出*ServiceInfo

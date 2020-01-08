@@ -5,8 +5,8 @@ import (
 	"time"
 
 	"github.com/valyala/fasthttp"
-	"github.com/wanghongfei/gogate/conf"
-	serv "github.com/wanghongfei/gogate/server"
+	"github.com/tangxqa/gogate/conf"
+	serv "github.com/tangxqa/gogate/server"
 )
 
 func main() {

@@ -5,9 +5,9 @@ import (
 	"time"
 
 	asynclog "github.com/alecthomas/log4go"
-	"github.com/wanghongfei/go-eureka-client/eureka"
-	"github.com/wanghongfei/gogate/conf"
-	"github.com/wanghongfei/gogate/utils"
+	"github.com/tangxqa/go-eureka-client/eureka"
+	"github.com/tangxqa/gogate/conf"
+	"github.com/tangxqa/gogate/utils"
 )
 
 var euClient *eureka.Client

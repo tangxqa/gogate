@@ -5,8 +5,8 @@ import (
 	"time"
 
 	log "github.com/alecthomas/log4go"
-	"github.com/wanghongfei/gogate/conf"
-	serv "github.com/wanghongfei/gogate/server"
+	"github.com/tangxqa/gogate/conf"
+	serv "github.com/tangxqa/gogate/server"
 )
 
 func main() {

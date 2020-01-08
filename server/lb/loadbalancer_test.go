@@ -2,7 +2,7 @@ package lb
 
 import (
 	"fmt"
-	"github.com/wanghongfei/gogate/discovery"
+	"github.com/tangxqa/gogate/discovery"
 	"testing"
 )
 

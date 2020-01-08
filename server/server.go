@@ -3,9 +3,9 @@ package server
 import (
 	"errors"
 	"fmt"
-	"github.com/wanghongfei/gogate/server/lb"
-	"github.com/wanghongfei/gogate/server/route"
-	"github.com/wanghongfei/gogate/server/syncmap"
+	"github.com/tangxqa/gogate/server/lb"
+	"github.com/tangxqa/gogate/server/route"
+	"github.com/tangxqa/gogate/server/syncmap"
 	"net"
 	"os"
 	"strconv"
@@ -14,11 +14,11 @@ import (
 
 	log "github.com/alecthomas/log4go"
 	"github.com/valyala/fasthttp"
-	"github.com/wanghongfei/gogate/conf"
-	"github.com/wanghongfei/gogate/discovery"
-	"github.com/wanghongfei/gogate/redis"
-	"github.com/wanghongfei/gogate/server/statistics"
-	"github.com/wanghongfei/gogate/throttle"
+	"github.com/tangxqa/gogate/conf"
+	"github.com/tangxqa/gogate/discovery"
+	"github.com/tangxqa/gogate/redis"
+	"github.com/tangxqa/gogate/server/statistics"
+	"github.com/tangxqa/gogate/throttle"
 )
 
 type Server struct {

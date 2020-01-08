@@ -3,12 +3,12 @@ package server
 import (
 	"fmt"
 	log "github.com/alecthomas/log4go"
-	"github.com/wanghongfei/gogate/discovery"
-	"github.com/wanghongfei/gogate/server/route"
+	"github.com/tangxqa/gogate/discovery"
+	"github.com/tangxqa/gogate/server/route"
 	"strings"
 
 	"github.com/valyala/fasthttp"
-	"github.com/wanghongfei/gogate/utils"
+	"github.com/tangxqa/gogate/utils"
 )
 
 // 转发请求到指定微服务

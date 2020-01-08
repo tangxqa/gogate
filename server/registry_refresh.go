@@ -2,11 +2,11 @@ package server
 
 import (
 	log "github.com/alecthomas/log4go"
-	"github.com/wanghongfei/go-eureka-client/eureka"
-	"github.com/wanghongfei/gogate/conf"
-	"github.com/wanghongfei/gogate/discovery"
-	"github.com/wanghongfei/gogate/server/syncmap"
-	"github.com/wanghongfei/gogate/utils"
+	"github.com/tangxqa/go-eureka-client/eureka"
+	"github.com/tangxqa/gogate/conf"
+	"github.com/tangxqa/gogate/discovery"
+	"github.com/tangxqa/gogate/server/syncmap"
+	"github.com/tangxqa/gogate/utils"
 	"strconv"
 	"sync"
 )

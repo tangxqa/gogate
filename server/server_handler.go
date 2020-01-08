@@ -3,7 +3,7 @@ package server
 import (
 	log "github.com/alecthomas/log4go"
 	"github.com/valyala/fasthttp"
-	"github.com/wanghongfei/gogate/utils"
+	"github.com/tangxqa/gogate/utils"
 	"strconv"
 )
 

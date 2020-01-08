@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/wanghongfei/gogate/redis"
+	"github.com/tangxqa/gogate/redis"
 )
 
 type RedisRateLimiter struct {

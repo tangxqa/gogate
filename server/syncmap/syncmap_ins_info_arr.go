@@ -1,7 +1,7 @@
 package syncmap
 
 import (
-	"github.com/wanghongfei/gogate/discovery"
+	"github.com/tangxqa/gogate/discovery"
 	"sync"
 
 )
