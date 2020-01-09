@@ -27,15 +27,35 @@ func InitEurekaClient() {
 }
 
 func StartRegister() {
+
+	//发送注册信息
+	SendRegistInstanceInfo()
+
+	// 心跳
+	go func() {
+		ticker = time.NewTicker(time.Second * time.Duration(conf.App.EurekaConfig.HeartbeatInterval))
+		tickerCloseChan = make(chan struct{})
+
+		for {
+			select {
+			case <-ticker.C:
+				heartbeat()
+
+			case <-tickerCloseChan:
+				asynclog.Info("heartbeat stopped")
+				return
+
+			}
+		}
+	}()
+}
+
+
+func SendRegistInstanceInfo() {
 	ip, err := utils.GetFirstNoneLoopIp()
 	if nil != err {
 		panic(err)
 	}
-
-	//host, err := os.Hostname()
-	//if nil != err {
-	//	panic(err)
-	//}
 
 	instanceId = ip + ":" + conf.App.ServerConfig.AppName + ":" + strconv.Itoa(conf.App.ServerConfig.Port)
 
@@ -58,24 +78,6 @@ func StartRegister() {
 	if nil != err {
 		asynclog.Warn("failed to register to eureka, %v", err)
 	}
-
-	// 心跳
-	go func() {
-		ticker = time.NewTicker(time.Second * time.Duration(conf.App.EurekaConfig.HeartbeatInterval))
-		tickerCloseChan = make(chan struct{})
-
-		for {
-			select {
-			case <-ticker.C:
-				heartbeat()
-
-			case <-tickerCloseChan:
-				asynclog.Info("heartbeat stopped")
-				return
-
-			}
-		}
-	}()
 }
 
 func UnRegister() {
