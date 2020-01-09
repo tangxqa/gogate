@@ -2,6 +2,7 @@ package discovery
 
 import (
 	"strconv"
+	"strings"
 	"time"
 
 	asynclog "github.com/alecthomas/log4go"
@@ -103,7 +104,7 @@ func heartbeat() {
 	if nil != err {
 		asynclog.Warn("failed to send heartbeat, %v", err)
 
-		if _, ok := interface{}(&err).(eureka.EurekaError); ok {
+		if ok := strings.Contains(err.Error(), "Instance resource not found"); ok {
 			SendRegistInstanceInfo()
 		}
 	}
