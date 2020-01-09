@@ -27,37 +27,9 @@ func InitEurekaClient() {
 }
 
 func StartRegister() {
-	ip, err := utils.GetFirstNoneLoopIp()
-	if nil != err {
-		panic(err)
-	}
 
-	//host, err := os.Hostname()
-	//if nil != err {
-	//	panic(err)
-	//}
-
-	instanceId = ip + ":" + conf.App.ServerConfig.AppName + ":" + strconv.Itoa(conf.App.ServerConfig.Port)
-
-	// 注册
-	asynclog.Info("register to eureka as %s", ip)
-	gogateApp = eureka.NewInstanceInfo(
-		ip,
-		conf.App.ServerConfig.AppName,
-		ip,
-		conf.App.ServerConfig.Port,
-		conf.App.EurekaConfig.EvictionDuration,
-		false,
-	)
-	gogateApp.Metadata = &eureka.MetaData{
-		Class: "",
-		Map: map[string]string {"version": conf.App.Version},
-	}
-
-	err = euClient.RegisterInstance(conf.App.ServerConfig.AppName, gogateApp)
-	if nil != err {
-		asynclog.Warn("failed to register to eureka, %v", err)
-	}
+	//发送注册信息
+	SendRegistInstanceInfo()
 
 	// 心跳
 	go func() {
@@ -76,6 +48,35 @@ func StartRegister() {
 			}
 		}
 	}()
+}
+
+func SendRegistInstanceInfo() {
+	ip, err := utils.GetFirstNoneLoopIp()
+	if nil != err {
+		panic(err)
+	}
+
+	instanceId = ip + ":" + conf.App.ServerConfig.AppName + ":" + strconv.Itoa(conf.App.ServerConfig.Port)
+
+	// 注册
+	asynclog.Info("register to eureka as %s", ip)
+	gogateApp = eureka.NewInstanceInfo(
+		ip,
+		conf.App.ServerConfig.AppName,
+		ip,
+		conf.App.ServerConfig.Port,
+		conf.App.EurekaConfig.EvictionDuration,
+		false,
+	)
+	gogateApp.Metadata = &eureka.MetaData{
+		Class: "",
+		Map:   map[string]string{"version": conf.App.Version},
+	}
+
+	err = euClient.RegisterInstance(conf.App.ServerConfig.AppName, gogateApp)
+	if nil != err {
+		asynclog.Warn("failed to register to eureka, %v", err)
+	}
 }
 
 func UnRegister() {
@@ -101,9 +102,11 @@ func heartbeat() {
 	err := euClient.SendHeartbeat(gogateApp.App, instanceId)
 	if nil != err {
 		asynclog.Warn("failed to send heartbeat, %v", err)
-		return
+
+		if _, ok := interface{}(&err).(eureka.EurekaError); ok {
+			SendRegistInstanceInfo()
+		}
 	}
 
-	asynclog.Info("heartbeat sent")
+	return
 }
-
